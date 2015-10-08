@@ -1,0 +1,2 @@
+# PMCollectionViewHeaderScroll
+UICollectionHeaderView中添加可以自动翻页的效果
