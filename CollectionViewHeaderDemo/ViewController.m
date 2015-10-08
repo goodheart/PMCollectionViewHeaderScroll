@@ -112,6 +112,9 @@
     NSLog(@"%@",videoPath);
 }
 
+- (UIColor *)colorOfPageControlCurrentPageIndicator {
+    return [UIColor orangeColor];
+}
 
 #pragma mark - Property Getter
 - (UICollectionView *)collectionView {

@@ -36,9 +36,21 @@
 }
 
 - (void)awakeFromNib {
-    self.backgroundColor = [UIColor orangeColor];
-    [self.pageControl setCurrentPageIndicatorTintColor:[UIColor redColor]];
     [self initCustomUIWithFrame:self.frame];
+}
+
+- (void)layoutSubviews {
+    UIColor * IndicatorTintColor = nil;
+    if (nil != self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(colorOfPageControlCurrentPageIndicator)]) {
+            IndicatorTintColor = [self.delegate colorOfPageControlCurrentPageIndicator];
+        }
+    }
+    if (nil == IndicatorTintColor) {
+        IndicatorTintColor = [UIColor redColor];
+    }
+    [self.pageControl setCurrentPageIndicatorTintColor:IndicatorTintColor];
+    
 }
 
 #pragma mark - Public Method
