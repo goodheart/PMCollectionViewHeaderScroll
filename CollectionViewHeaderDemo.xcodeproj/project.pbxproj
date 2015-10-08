@@ -12,8 +12,8 @@
 		368351951BBBC8F200584D1F /* DES_Bse64_apple.m in Sources */ = {isa = PBXBuildFile; fileRef = 368351901BBBC8F200584D1F /* DES_Bse64_apple.m */; settings = {ASSET_TAGS = (); }; };
 		368351961BBBC8F200584D1F /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 368351921BBBC8F200584D1F /* GTMBase64.m */; settings = {ASSET_TAGS = (); }; };
 		36E4F3861BC61F46005E6C7B /* PMCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E4F3851BC61F46005E6C7B /* PMCollectionReusableView.m */; settings = {ASSET_TAGS = (); }; };
-		36E4F38A1BC62091005E6C7B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E4F3881BC62091005E6C7B /* VideoViewController.m */; settings = {ASSET_TAGS = (); }; };
-		36E4F38B1BC62091005E6C7B /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4F3891BC62091005E6C7B /* VideoViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		36E4F38A1BC62091005E6C7B /* PMVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36E4F3881BC62091005E6C7B /* PMVideoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		36E4F38B1BC62091005E6C7B /* PMVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4F3891BC62091005E6C7B /* PMVideoViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		36E4F38D1BC63ACF005E6C7B /* PMCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4F38C1BC63ACF005E6C7B /* PMCollectionReusableView.xib */; settings = {ASSET_TAGS = (); }; };
 		36EA44ED1BBBAF810076C30D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36EA44EC1BBBAF810076C30D /* main.m */; };
 		36EA44F01BBBAF810076C30D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36EA44EF1BBBAF810076C30D /* AppDelegate.m */; };
@@ -36,9 +36,9 @@
 		368351931BBBC8F200584D1F /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		36E4F3841BC61F46005E6C7B /* PMCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCollectionReusableView.h; sourceTree = "<group>"; };
 		36E4F3851BC61F46005E6C7B /* PMCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCollectionReusableView.m; sourceTree = "<group>"; };
-		36E4F3871BC62091005E6C7B /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
-		36E4F3881BC62091005E6C7B /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
-		36E4F3891BC62091005E6C7B /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		36E4F3871BC62091005E6C7B /* PMVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMVideoViewController.h; sourceTree = "<group>"; };
+		36E4F3881BC62091005E6C7B /* PMVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMVideoViewController.m; sourceTree = "<group>"; };
+		36E4F3891BC62091005E6C7B /* PMVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMVideoViewController.xib; sourceTree = "<group>"; };
 		36E4F38C1BC63ACF005E6C7B /* PMCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMCollectionReusableView.xib; sourceTree = "<group>"; };
 		36EA44E81BBBAF810076C30D /* CollectionViewHeaderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewHeaderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA44EC1BBBAF810076C30D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,9 +88,9 @@
 				36E4F3841BC61F46005E6C7B /* PMCollectionReusableView.h */,
 				36E4F3851BC61F46005E6C7B /* PMCollectionReusableView.m */,
 				36E4F38C1BC63ACF005E6C7B /* PMCollectionReusableView.xib */,
-				36E4F3871BC62091005E6C7B /* VideoViewController.h */,
-				36E4F3881BC62091005E6C7B /* VideoViewController.m */,
-				36E4F3891BC62091005E6C7B /* VideoViewController.xib */,
+				36E4F3871BC62091005E6C7B /* PMVideoViewController.h */,
+				36E4F3881BC62091005E6C7B /* PMVideoViewController.m */,
+				36E4F3891BC62091005E6C7B /* PMVideoViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36EA44FB1BBBAF810076C30D /* LaunchScreen.storyboard in Resources */,
-				36E4F38B1BC62091005E6C7B /* VideoViewController.xib in Resources */,
+				36E4F38B1BC62091005E6C7B /* PMVideoViewController.xib in Resources */,
 				36E4F38D1BC63ACF005E6C7B /* PMCollectionReusableView.xib in Resources */,
 				36EA44F81BBBAF810076C30D /* Assets.xcassets in Resources */,
 				36EA44F61BBBAF810076C30D /* Main.storyboard in Resources */,
@@ -270,7 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36EA452A1BBBC5F90076C30D /* NSMutableDictionary+QD.m in Sources */,
-				36E4F38A1BC62091005E6C7B /* VideoViewController.m in Sources */,
+				36E4F38A1BC62091005E6C7B /* PMVideoViewController.m in Sources */,
 				36EA44F31BBBAF810076C30D /* ViewController.m in Sources */,
 				36E4F3861BC61F46005E6C7B /* PMCollectionReusableView.m in Sources */,
 				36EA44F01BBBAF810076C30D /* AppDelegate.m in Sources */,

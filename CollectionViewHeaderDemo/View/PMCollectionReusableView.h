@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VideoViewController.h"
+#import "PMVideoViewController.h"
 
 @protocol PMCollectionReusableViewDelegate <NSObject>
 @optional

@@ -7,7 +7,7 @@
 //
 
 #import "PMCollectionReusableView.h"
-#import "VideoViewController.h"
+#import "PMVideoViewController.h"
 @interface PMCollectionReusableView ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate,VideoViewControllerDelegate>
 /* IBOutlet */
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -17,8 +17,8 @@
 @property (nonatomic, strong) UIPageViewController * pageViewController;
 
 /* Private Method */
-- (VideoViewController *)viewControllerAtIndex:(NSUInteger)index;
-- (NSUInteger)indexOfViewController:(VideoViewController *)viewController;
+- (PMVideoViewController *)viewControllerAtIndex:(NSUInteger)index;
+- (NSUInteger)indexOfViewController:(PMVideoViewController *)viewController;
 - (void)initCustomUIWithFrame:(CGRect)frame;
 - (void)timerTurnPage;//定时翻页
 
@@ -36,6 +36,7 @@
 }
 
 - (void)awakeFromNib {
+    self.pageControl.hidesForSinglePage = YES;
     [self initCustomUIWithFrame:self.frame];
 }
 
@@ -56,13 +57,17 @@
 #pragma mark - Public Method
 - (void)setDataSourceArrayI:(NSArray<NSDictionary *> *)dataSourceArrayI {
     
+    if ( nil == dataSourceArrayI || 0 == dataSourceArrayI.count) {
+        return;
+    }
+    
     if ([dataSourceArrayI isEqualToArray:_dataSourceArrayI]) {
         return;
     }
 
     _dataSourceArrayI = dataSourceArrayI;
     dispatch_async(dispatch_get_main_queue(), ^{        
-        VideoViewController * vc = [self viewControllerAtIndex:0];
+        PMVideoViewController * vc = [self viewControllerAtIndex:0];
         NSArray * vcs = [NSArray arrayWithObject:vc];
         [self.pageViewController setViewControllers:vcs
                                           direction:UIPageViewControllerNavigationDirectionForward
@@ -76,7 +81,11 @@
 #pragma mark - UIPageViewControllerDataSource
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
-    NSUInteger index = [self indexOfViewController:(VideoViewController *)viewController];
+    if (self.dataSourceArrayI.count <= 1) {
+        return nil;
+    }
+    
+    NSUInteger index = [self indexOfViewController:(PMVideoViewController *)viewController];
     
     if (index == NSNotFound) {
         return nil;
@@ -86,8 +95,11 @@
 }
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    if (self.dataSourceArrayI.count <= 1) {
+        return nil;
+    }
     
-    NSUInteger index = [self indexOfViewController:(VideoViewController *)viewController];
+    NSUInteger index = [self indexOfViewController:(PMVideoViewController *)viewController];
     
     if (index == NSNotFound) {
         return nil;
@@ -100,14 +112,14 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     
     if (finished && completed) {
-        VideoViewController * currentViewController = [self.pageViewController.viewControllers firstObject];
+        PMVideoViewController * currentViewController = [self.pageViewController.viewControllers firstObject];
         NSUInteger index = [self indexOfViewController:currentViewController];
         [self.pageControl setCurrentPage:index];
     }
 }
 
 #pragma mark - VideoViewControllerDelegate
-- (void)didSelectViewController:(VideoViewController *)videoViewController {
+- (void)didSelectViewController:(PMVideoViewController *)videoViewController {
     if (nil == self.delegate) {
         return;
     }
@@ -122,12 +134,12 @@
 }
 
 #pragma mark - Private Method
-- (VideoViewController *)viewControllerAtIndex:(NSUInteger)index {
+- (PMVideoViewController *)viewControllerAtIndex:(NSUInteger)index {
     if (self.dataSourceArrayI.count == 0 || index >= self.dataSourceArrayI.count) {
         return nil;
     }
     
-    VideoViewController * viewController = [[VideoViewController alloc] initWithNibName:NSStringFromClass([VideoViewController class]) bundle:nil];
+    PMVideoViewController * viewController = [[PMVideoViewController alloc] initWithNibName:NSStringFromClass([PMVideoViewController class]) bundle:nil];
     
     viewController.dataSourceDictI = self.dataSourceArrayI[index];
     viewController.delegate = self;
@@ -135,7 +147,7 @@
     return viewController;
 }
 
-- (NSUInteger)indexOfViewController:(VideoViewController *)viewController {
+- (NSUInteger)indexOfViewController:(PMVideoViewController *)viewController {
     return [self.dataSourceArrayI indexOfObject:viewController.dataSourceDictI];
 }
 
@@ -146,12 +158,17 @@
                                                                             options:nil];
     self.pageViewController.delegate = self;
     self.pageViewController.dataSource = self;
-    self.pageViewController.view.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame) - CGRectGetHeight(self.pageControl.frame));
+    self.pageViewController.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), CGRectGetHeight(self.contentView.bounds));
     
     [self.contentView addSubview:self.pageViewController.view];
 }
 
 - (void)timerTurnPage {
+    
+    if (self.dataSourceArrayI.count <= 1) {
+        return;
+    }
+    
     [NSTimer scheduledTimerWithTimeInterval:1.5f
                                      target:self
                                    selector:@selector(autoTurnPage)
@@ -160,10 +177,10 @@
 }
 
 - (void)autoTurnPage {
-    VideoViewController * currentViewController = [self.pageViewController.viewControllers firstObject];
+    PMVideoViewController * currentViewController = [self.pageViewController.viewControllers firstObject];
     NSUInteger index = [self indexOfViewController:currentViewController];
     NSUInteger nextIndex = (index + 1) % self.dataSourceArrayI.count;
-    VideoViewController * nextViewController = [self viewControllerAtIndex:nextIndex];
+    PMVideoViewController * nextViewController = [self viewControllerAtIndex:nextIndex];
     [self.pageViewController setViewControllers:@[nextViewController]
                                       direction:UIPageViewControllerNavigationDirectionForward
                                        animated:YES

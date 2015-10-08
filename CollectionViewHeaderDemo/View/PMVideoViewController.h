@@ -14,14 +14,14 @@ extern NSString * const PMDurationKey;
 extern NSString * const PMImagePathKey;
 extern NSString * const PMVideoPath;
 
-@class VideoViewController;
+@class PMVideoViewController;
 @protocol VideoViewControllerDelegate <NSObject>
 @optional
-- (void)didSelectViewController:(VideoViewController *)videoViewController;
+- (void)didSelectViewController:(PMVideoViewController *)videoViewController;
 
 @end
 
-@interface VideoViewController : UIViewController
+@interface PMVideoViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary * dataSourceDictI;
 @property (nonatomic,weak) id<VideoViewControllerDelegate> delegate;

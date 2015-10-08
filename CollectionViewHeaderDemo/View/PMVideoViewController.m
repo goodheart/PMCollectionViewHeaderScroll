@@ -6,7 +6,7 @@
 //  Copyright © 2015年 majian. All rights reserved.
 //
 
-#import "VideoViewController.h"
+#import "PMVideoViewController.h"
 #import <UIImageView+WebCache.h>
 NSString * const PMTitleKey = @"titleKey";
 NSString * const PMPlayCountKey = @"playCountKey";
@@ -15,7 +15,7 @@ NSString * const PMDurationKey = @"durationKey";
 NSString * const PMImagePathKey = @"imagePathKey";
 NSString * const PMVideoPath = @"videoPath";
 
-@interface VideoViewController ()
+@interface PMVideoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *videoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -24,7 +24,7 @@ NSString * const PMVideoPath = @"videoPath";
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @end
 
-@implementation VideoViewController
+@implementation PMVideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

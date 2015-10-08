@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EBDDBF3321937173FE864DC33C929E044AB086B8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A4D7DB7936D18F8797892B0805F0623344CBAEBE" : 0,
+    "EBDDBF3321937173FE864DC33C929E044AB086B8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "211D32C7-5459-489C-A161-3E2FFC733290",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A4D7DB7936D18F8797892B0805F0623344CBAEBE" : "",
+    "EBDDBF3321937173FE864DC33C929E044AB086B8" : "CollectionViewHeaderDemo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CollectionViewHeaderDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CollectionViewHeaderDemo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:goodheart\/firstDemo123.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A4D7DB7936D18F8797892B0805F0623344CBAEBE"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/goodheart\/PMCollectionViewHeaderScroll.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EBDDBF3321937173FE864DC33C929E044AB086B8"
+    }
+  ]
+}
